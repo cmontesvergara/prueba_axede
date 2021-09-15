@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador</title>
+</head>
+
+<body>
+    <div class="container">
+        <article>
+            <nav>
+                <header>Axede</header>
+                <div class="search">
+                    <input name="id" id="inp_search" type="text">
+                    <button type="button" onclick="buscar()">Buscar</button>
+                    <a id="link_search" hidden></a>
+                    </form>
+
+            </nav>
+        </article>
+        <article>
+            <section>
+                <div>
+                    <h2>Tarifas</h2>
+                    <ul>
+                        <li id="tarifa1">0</li>
+                        <li id="tarifa2">0</li>
+                        <li id="tarifa2">0</li>
+                    </ul>
+                </div>
+
+            </section>
+            <section>
+
+            </section>
+        </article>
+        </div>
+        <script>
+            function buscar() {
+                const inp_search = document.getElementById("inp_search");
+                var respuesta = [];
+                fetch(`http://localhost:3000/sedes/${inp_search.value}`).then(data => {
+                    return data.json()
+                }).then(res => {
+                    console.log(res)
+                })
+
+            }
+        </script>
+</body>
+
+</html>
